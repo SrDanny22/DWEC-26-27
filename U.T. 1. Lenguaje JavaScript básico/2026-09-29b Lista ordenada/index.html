@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Módulos de sengundo curso</h1>
+
+    <ol id="eOlModulos"></ol>
+
+    <script>
+        'use strict'
+
+        const eOl = document.getElementById('eOlModulos');
+
+        const eLiDWEC = document.createElement('li');
+        const eLiDWES = document.createElement('li');
+        const eLiDEAW = document.createElement('li');
+        const eLiDIW = document.createElement('li');
+
+
+        eOl.appendChild(eLiDWEC);
+        eOl.appendChild(eLiDWES);
+        eOl.appendChild(eLiDEAW);
+        eOl.appendChild(eLiDIW);
+
+        const nTxDWEC = document.createTextNode("Desarrollo Web Entorno Cliente");
+        const nTxDWES = document.createTextNode("Desarrollo Web Entorno Servidor");
+        const nTxDEAW = document.createTextNode("Despliegue de Aplicaciones Web");
+        const nTxDIW = document.createTextNode("Desarrollo de interfaces Web");
+
+        eLiDWEC.appendChild(nTxDWEC);
+        eLiDWES.appendChild(nTxDWES);
+        eLiDEAW.appendChild(nTxDEAW);
+        eLiDIW.appendChild(nTxDIW);
+
+        eOl.setAttribute('type', 'I');
+
+    </script>
+</body>
+</html>

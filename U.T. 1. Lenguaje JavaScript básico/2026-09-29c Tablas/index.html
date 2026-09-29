@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tablas con HTML</h1>
+
+    <h2>La tabla hecha con HTML</h2>
+
+    <table border="1">
+        <tr>
+            <th>País</th>
+            <th>Código</th>
+        </tr>
+        
+        <tr>
+            <td>España</td>
+            <td>ES</td>
+        </tr>
+
+        <tr>
+            <td>Francia</td>
+            <td>FR</td>
+        </tr>
+    </table>
+
+    <h2>La misma tabla hecha con JavaScript</h2>
+    
+    <table id="eTablePaises">
+
+    </table>
+
+    <script>
+        const eTPais = document.getElementById('eTablePaises');
+
+        eTPais.setAttribute('border', '1');
+
+        // Cabeceras
+
+        // Creamos las cabeceras
+        const trC1 = document.createElement('tr');
+        const trC2 = document.createElement('tr');
+        const trC3 = document.createElement('tr');
+
+        // Las añadimos a la tabla
+        eTPais.appendChild(trC1);
+        eTPais.appendChild(trC2);
+        eTPais.appendChild(trC3);
+
+        // Fila 1
+
+        // Creamos los th de las cabeceras
+        const th1 = document.createElement('th');
+        const th2 = document.createElement('th');
+
+        trC1.appendChild(th1);
+        trC1.appendChild(th2);
+
+        const txt1C1 = document.createTextNode('País');
+        const txt2C1 = document.createTextNode('Código');
+
+        th1.appendChild(txt1C1);
+        th2.appendChild(txt2C1);
+
+        // Fila 2
+
+        const td1 = document.createElement('td');
+        const td2 = document.createElement('td');
+
+        trC2.appendChild(td1);
+        trC2.appendChild(td2);
+
+        const txt1C2 = document.createTextNode('España');
+        const txt2C2 = document.createTextNode('ES');
+
+        td1.appendChild(txt1C2);
+        td2.appendChild(txt2C2);
+
+        // Fila 3
+
+        const td3 = document.createElement('td');
+        const td4 = document.createElement('td');
+
+        trC3.appendChild(td3);
+        trC3.appendChild(td4);
+
+        const txt1C3 = document.createTextNode('Francia');
+        const txt2C3 = document.createTextNode('FR');
+
+        td3.appendChild(txt1C3);
+        td4.appendChild(txt2C3);
+
+    </script>
+</body>
+</html>

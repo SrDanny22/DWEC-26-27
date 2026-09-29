@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM Document Object Model</h1>
+
+    <h2>Lenguajes de programación</h2>
+
+    <ul id="eUlLenguajes">
+        <li>Java</li>
+        <li>SQL</li>
+    </ul>
+
+    <script>
+        'use strict';
+
+        const nUl = document.getElementById('eUlLenguajes');
+        nUl.setAttribute('type', 'square');
+        nUl.setAttribute('title', 'Lenguajes de programación')
+
+        const nLiJavascript = document.createElement('li');
+        nUl.appendChild(nLiJavascript);
+        
+        const nTxtJavascript = document.createTextNode('JavaScript');
+        nLiJavascript.appendChild(nTxtJavascript);
+        
+        const nLiPhp = document.createElement('li');
+        nUl.appendChild(nLiPhp);
+
+        const nTxtPhp = document.createTextNode('PHP');
+        nLiPhp.appendChild(nTxtPhp);
+        
+    </script>
+</body>
+</html>
