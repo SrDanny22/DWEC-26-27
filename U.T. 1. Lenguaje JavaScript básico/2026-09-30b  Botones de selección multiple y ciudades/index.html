@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+        import { ciudades } from "./ciudades.js";
+
+        const nSection = document.getElementById('eSection');
+
+        const nInput = document.createElement('input');
+        nSection.appendChild(nInput);
+
+        const nLabel = document.createElement('label');
+        nSection.appendChild(nLabel);
+
+        // Atributos input
+        nInput.setAttribute('type', 'checkbox');
+        nInput.setAttribute('name', 'lorca');
+        nInput.setAttribute('id', 'eChkLorca');
+
+        // Atributos label
+        nLabel.setAttribute('for', 'eChkLorca');
+
+        // Añadir texto
+        
+
+
+    </script>
+</head>
+<body>
+    <h1>Ciudades de Murcia</h1>
+
+    <section id="eSection">
+        <!-- <input type="checkbox" name="lorca" id="eChkLorca">
+        <label for="eChkLorca">Lorca</label>
+
+        <input type="checkbox" name="aguilas" id="eChkAquilas">
+        <label for="eChkAguilas">Aguilas</label> -->
+    </section>
+</body>
+</html>

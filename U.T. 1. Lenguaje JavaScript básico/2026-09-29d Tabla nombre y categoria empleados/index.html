@@ -4,18 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla Empleados</title>
+
+    <style>
+        table, tr, th, td {
+            border: solid;
+            border-collapse: collapse;
+        }
+
+        tbody tr:nth-child(2n) {
+            background-color: aqua;
+        }
+
+        tbody tr:nth-child(2n+1) {
+            background-color: gold;
+        }
+    </style>
+
+    <script type="module">
+        import { empleados } from "./empleados.js";
+        console.log(empleados.length);
+        
+        const nTbody = document.getElementById('eTbdEmpleados');
+
+        for (let i in empleados) {
+
+    
+            const nTr = document.createElement('tr');
+            nTbody.appendChild(nTr);
+    
+            nTr.setAttribute('data-empleado', i)
+    
+            const nTdNumero = document.createElement('td');
+            nTr.appendChild(nTdNumero);
+    
+            const nTxtNumero = document.createTextNode(parseInt(i)+1);
+            nTdNumero.appendChild(nTxtNumero);
+    
+            const nTdNombre = document.createElement('td');
+            nTr.appendChild(nTdNombre);
+    
+            const nTxtNombre = document.createTextNode(`${empleados[i].nombre} ${empleados[i].apellido}`);
+            nTdNombre.appendChild(nTxtNombre);
+    
+            const nTdCategoria = document.createElement('td');
+            nTr.appendChild(nTdCategoria);
+    
+            const nTxtCategoria = document.createTextNode(empleados[i].categoria);
+            nTdCategoria.appendChild(nTxtCategoria);
+        }
+
+    </script>
 </head>
 <body>
     <h1>Tabla Empleados</h1>
 
-    <table border 1>
+    <table>
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+            </tr>
+        </thead>
 
+        <tbody id="eTbdEmpleados">
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>Número</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+            </tr>
+        </tfoot>
     </table>
 
-    <script type="module">
-        import { empleados } from './empleados.js';
-
-        console.log(empleados.length);
-    </script>
 </body>
 </html>

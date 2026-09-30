@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+
+        import { pokemons } from "./pokemons.js";
+        console.log(pokemons.length);
+        const nSelect = document.getElementById('eSelectPokemon');
+
+        
+        for(let i in pokemons) {
+            const url = pokemons[i].url;
+    
+            const urlSplit = url.split('/');
+    
+            const nOption = document.createElement('option');
+            nSelect.appendChild(nOption);
+    
+            nOption.setAttribute('value', urlSplit[6]); // Otra opcion seria hacer nOption.setAttribute('value', pokemon.url.split('/')[6]);
+    
+            const nTxtPokemon = document.createTextNode(pokemons[i].name);
+            nOption.appendChild(nTxtPokemon);
+        }
+    </script>
+</head>
+<body>
+    <h1>Pokemons</h1>
+
+    <select id="eSelectPokemon">
+        <option selected disabled>Elige un pokemon</option>
+    </select>
+</body>
+</html>
