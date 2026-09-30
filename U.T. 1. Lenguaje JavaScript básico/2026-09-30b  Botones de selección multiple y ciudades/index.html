@@ -8,37 +8,44 @@
     <script type="module">
         import { ciudades } from "./ciudades.js";
 
+        // Conseguimos el section
         const nSection = document.getElementById('eSection');
 
-        const nInput = document.createElement('input');
-        nSection.appendChild(nInput);
+        // Bucle para recorrer el array de objetos
+        for (let ciudad of ciudades) {
 
-        const nLabel = document.createElement('label');
-        nSection.appendChild(nLabel);
+            // Crear el elemento imput y añadirlo al section
+            const nInput = document.createElement('input');
+            nSection.appendChild(nInput);
+            
+            // Crear el elemento label y añadirlo al section
+            const nLabel = document.createElement('label');
+            nSection.appendChild(nLabel);
 
-        // Atributos input
-        nInput.setAttribute('type', 'checkbox');
-        nInput.setAttribute('name', 'lorca');
-        nInput.setAttribute('id', 'eChkLorca');
+            // Para separar los checkbox
+            const salto = document.createElement('br');
+            nSection.appendChild(salto);
+    
+            // Atributos input
+            nInput.setAttribute('type', 'checkbox');
+            nInput.setAttribute('name', ciudad.nombre.toLowerCase());
+            nInput.setAttribute('id', `eChk${ciudad.nombre}`);
+    
+            // Atributos label
+            nLabel.setAttribute('for', `eChk${ciudad.nombre}`);
+    
+            // Añadir texto
+            const nTxtCiudad = document.createTextNode(ciudad.nombre);
+            nLabel.appendChild(nTxtCiudad);
 
-        // Atributos label
-        nLabel.setAttribute('for', 'eChkLorca');
-
-        // Añadir texto
-        
-
-
+        }
     </script>
 </head>
 <body>
     <h1>Ciudades de Murcia</h1>
 
     <section id="eSection">
-        <!-- <input type="checkbox" name="lorca" id="eChkLorca">
-        <label for="eChkLorca">Lorca</label>
-
-        <input type="checkbox" name="aguilas" id="eChkAquilas">
-        <label for="eChkAguilas">Aguilas</label> -->
+        
     </section>
 </body>
 </html>
