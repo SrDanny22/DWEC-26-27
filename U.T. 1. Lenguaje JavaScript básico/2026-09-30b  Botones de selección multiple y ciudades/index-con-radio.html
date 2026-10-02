@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+        import { ciudades } from "./ciudades.js";
+
+        // Conseguimos el section
+        const nForm = document.getElementById('eForm');
+
+        // Bucle para recorrer el array de objetos
+        for (let ciudad of ciudades) {
+
+            // Crear el elemento imput y añadirlo al section
+            const nInput = document.createElement('input');
+            nForm.appendChild(nInput);
+            
+            // Crear el elemento label y añadirlo al section
+            const nLabel = document.createElement('label');
+            nForm.appendChild(nLabel);
+
+            // Para separar los checkbox
+            const salto = document.createElement('br');
+            nForm.appendChild(salto);
+    
+            // Atributos input
+            nInput.setAttribute('type', 'radio');
+            nInput.setAttribute('name', 'ciudad');
+            nInput.setAttribute('id', `eChk${ciudad.codigoPostal}`);
+            nInput.setAttribute('value', ciudad.codigoPostal);
+            
+            if (ciudad.codigoPostal === '30800') {
+                nInput.setAttribute('checked', '');
+            }
+
+            // Atributos label
+            nLabel.setAttribute('for', `eChk${ciudad.codigoPostal}`);
+    
+            // Añadir texto
+            const nTxtCiudad = document.createTextNode(ciudad.nombre);
+            nLabel.appendChild(nTxtCiudad);
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Ciudades de Murcia</h1>
+    <form id="eForm" action="https://www.fdsfsfs.com/ciudades.php" method="get">
+
+        <!-- <input type="submit" value="Enviar"> -->
+         <button>Enviar</button> <!-- PELIGRO: Este botón es de tipo submit aunque no ponga el tipo submit-->
+         <!-- <button type="button">Enviar</button> -->
+        <br>
+    </form>
+</body>
+</html>

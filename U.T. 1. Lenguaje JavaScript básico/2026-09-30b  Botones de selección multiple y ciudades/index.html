@@ -9,30 +9,31 @@
         import { ciudades } from "./ciudades.js";
 
         // Conseguimos el section
-        const nSection = document.getElementById('eSection');
+        const nForm = document.getElementById('eForm');
 
         // Bucle para recorrer el array de objetos
         for (let ciudad of ciudades) {
 
             // Crear el elemento imput y añadirlo al section
             const nInput = document.createElement('input');
-            nSection.appendChild(nInput);
+            nForm.appendChild(nInput);
             
             // Crear el elemento label y añadirlo al section
             const nLabel = document.createElement('label');
-            nSection.appendChild(nLabel);
+            nForm.appendChild(nLabel);
 
             // Para separar los checkbox
             const salto = document.createElement('br');
-            nSection.appendChild(salto);
+            nForm.appendChild(salto);
     
             // Atributos input
             nInput.setAttribute('type', 'checkbox');
-            nInput.setAttribute('name', ciudad.nombre.toLowerCase());
-            nInput.setAttribute('id', `eChk${ciudad.nombre}`);
+            nInput.setAttribute('name', ciudad.codigoPostal);
+            nInput.setAttribute('id', `eChk${ciudad.codigoPostal}`);
+            nInput.setAttribute('value', 'marcado');
     
             // Atributos label
-            nLabel.setAttribute('for', `eChk${ciudad.nombre}`);
+            nLabel.setAttribute('for', `eChk${ciudad.codigoPostal}`);
     
             // Añadir texto
             const nTxtCiudad = document.createTextNode(ciudad.nombre);
@@ -43,9 +44,12 @@
 </head>
 <body>
     <h1>Ciudades de Murcia</h1>
+    <form id="eForm" action="https://www.fdsfsfs.com/ciudades.php" method="get">
 
-    <section id="eSection">
-        
-    </section>
+        <!-- <input type="submit" value="Enviar"> -->
+         <button>Enviar</button> <!-- PELIGRO: Este botón es de tipo submit aunque no ponga el tipo submit-->
+         <!-- <button type="button">Enviar</button> -->
+        <br>
+    </form>
 </body>
 </html>
