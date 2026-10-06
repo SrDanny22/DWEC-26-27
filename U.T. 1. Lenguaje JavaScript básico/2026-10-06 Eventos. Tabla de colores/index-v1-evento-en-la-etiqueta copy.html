@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- table>tr*2>td*3 -->
+    <table border="1">
+        <tr>
+            <td style="background-color: red;" onclick="mostrarColor('rojo')">rojo</td>
+            <td style="background-color: greenyellow;" onclick="mostrarColor('verde')">verde</td>
+            <td style="background-color: blue;" onclick="mostrarColor('azul')">azul</td>
+        </tr>
+        <tr>
+            <td style="background-color: cyan;" onclick="mostrarColor('celeste')">celeste</td>
+            <td style="background-color: magenta;" onclick="mostrarColor('purpura')">purpura</td>
+            <td style="background-color: yellow;" onclick="mostrarColor('amarillo')">amarillo</td>
+        </tr>
+    </table>
+
+    <script>
+        function mostrarColor(color) {
+            console.log(`Has cliqueado en el color ${color}`)
+        }
+    </script>
+</body>
+</html>

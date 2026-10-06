@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(87, 84, 84);">
+    <h1>Mi afición favorita</h1>
+    <form action="https://www.paginaquenoexista.com/aficiones.php">
+        <section id="eSctAficiones">
+            <input type="radio" name="aficion" id="eRadnm" value="nm" onchange="mostrarMensaje(event)">
+            <label for="eRadnm">Navegar por el mar</label>
+        </section>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        'use strict';
+        
+        const aficiones = [
+            {clave: 'cc', valor:'Conducir coches'},
+            {clave: 'em', valor:'Escuchar música'},
+            {clave: 'sm', valor:'Salir con mujeres'},
+            {clave: 'll', valor:'Leer con libros'},
+            {clave: 'sa', valor:'Salir con amigos'},
+            {clave: 'jf', valor:'Jugar al fútbol'},
+            {clave: 'ai', valor:'Aprender idiomas'},
+        ];
+
+        const nSection = document.getElementById('eSctAficiones');
+
+
+        for (const aficion of aficiones) {
+            const nInput = document.createElement('input');
+            nSection.appendChild(nInput);
+    
+            nInput.setAttribute('type', 'radio');
+            nInput.setAttribute('name', 'aficion');
+            nInput.setAttribute('id', `eRad${aficion.clave}`);
+            nInput.setAttribute('value', aficion.clave);
+            // nInput.setAttribute('onchange', `mostrarMensaje('${aficion.clave}', this)`);
+            nInput.addEventListener('change', mostrarMensaje)
+    
+            const nLabel = document.createElement('label');
+            nSection.appendChild(nLabel);
+    
+            nLabel.setAttribute('for', `eRad${aficion.clave}`);
+    
+            const nTxt = document.createTextNode(aficion.valor);
+            nLabel.appendChild(nTxt);
+        }
+
+        function mostrarMensaje(e) {
+            console.log(e);
+            const etiquteta = e.target;
+            const clave = etiquteta.getAttribute('value');
+            console.log(etiquteta);
+            console.log(clave);
+        }
+
+    </script>
+</body>
+</html>

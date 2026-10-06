@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- table>tr*2>td*3 -->
+    <table border="1">
+        <tr>
+            <td data-color="azul" id="eTdAzul" style="background-color: blue;">Azul</td>
+            <td data-color="rojo" id="eTdRojo" style="background-color: red;">Rojo</td>
+            <td data-color="verde" id="eTdVerde" style="background-color: greenyellow;">Verde</td>
+        </tr>
+        <tr>
+            <td data-color="celeste" id="eTdCeleste" style="background-color: cyan;">Celeste</td>
+            <td data-color="purpura" id="eTdPurpura" style="background-color: magenta;">Purpura</td>
+            <td data-color="amarillo" id="eTdAmarillo" style="background-color: yellow;">Amarillo</td>
+        </tr>
+    </table>
+
+    <script>
+        document.getElementById('eTdAzul').addEventListener('click', mostrarColor);
+        document.getElementById('eTdRojo').addEventListener('click', mostrarColor);
+        document.getElementById('eTdVerde').addEventListener('click', mostrarColor);
+        document.getElementById('eTdCeleste').addEventListener('click', mostrarColor);
+        document.getElementById('eTdPurpura').addEventListener('click', mostrarColor);
+        document.getElementById('eTdAmarillo').addEventListener('click', mostrarColor);
+
+        function mostrarColor(e) {
+            const nTd = e.target;
+            console.log(nTd);
+            // const color = nTd.getAttribute('data-color');
+            const color = nTd.dataset.color;
+            console.log(color);
+        }
+    </script>
+</body>
+</html>
