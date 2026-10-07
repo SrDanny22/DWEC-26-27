@@ -8,6 +8,7 @@ function crearCheckbox(vehicles) {
     for (const vehicle of vehicles) {
         const nInput = document.createElement('input');
         nChk.appendChild(nInput);
+        nInput.addEventListener('change', agregarCuerpoTabla)
 
         nInput.setAttribute('type', 'checkbox');
         nInput.setAttribute('id', `tChk${vehicle.key}`);
