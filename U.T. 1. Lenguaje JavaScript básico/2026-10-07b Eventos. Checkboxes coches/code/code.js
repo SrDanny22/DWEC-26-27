@@ -26,28 +26,34 @@ function crearCheckbox(vehicles) {
 }
 
 function agregarCuerpoTabla(e) {
-    const nTbody = getElementById('eTbody');
-
+    
     const nInput = e.target;
     const inputKey = nInput.value;
-
+    
     const coche = vehicles.find(coche => coche.key === inputKey);
+    
+    const nTbody = document.getElementById('eTbody');
 
-    const nTr = document.createElement('tr');
-    nTbody.appendChild(nTr);
+    if (nInput.checked) {
+        const nTr = document.createElement('tr');
+        nTr.setAttribute('id', `tr${coche.key}`);
+        nTbody.appendChild(nTr);
+    
+        const nTdModelo = document.createElement('td');
+        const nTdFoto = document.createElement('td');
+        nTr.appendChild(nTdModelo);
+        nTr.appendChild(nTdFoto);
+    
+        const nTxtModelo = document.createTextNode(coche.model);
+        nTdModelo.appendChild(nTxtModelo);
+    
+        const nImg = document.createElement('img');
+        nImg.setAttribute('style', 'height: 80px;')
+        nImg.setAttribute('src', `./photos/${coche.photo}`);
+        nTdFoto.appendChild(nImg);
 
-    const nTdModelo = document.createElement('td');
-    const nTdFoto = document.createElement('td');
-    nTr.appendChild(nTdModelo);
-    nTr.appendChild(nTdFoto);
-
-    const nTxtModelo = document.createTextNode(coche.model);
-    nTdModelo.appendChild(nTxtModelo);
-
-    const nImg = document.createElement('img');
-    nTdFoto.appendChild(nImg);
-
-    nImg.setAttribute('src', `/photos/${coche.photo}`);
-
-
+    } else {
+        const nTr = document.getElementById(`tr${coche.key}`);
+        nTr.remove();
+    }
 }
