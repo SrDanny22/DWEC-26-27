@@ -40,6 +40,8 @@ async function mostrarProductoDeLaCategoria(e) {
 
     const nSection = document.getElementById('eSection');
 
+    nSection.innerHTML = '';
+
         productoP.forEach(producto => {
 
                 const nArticle = document.createElement('article');
