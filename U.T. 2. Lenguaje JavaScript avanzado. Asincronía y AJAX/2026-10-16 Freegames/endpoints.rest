@@ -1,0 +1,5 @@
+GET https://dummyjson.com/product/categories
+
+###
+
+GET https://dummyjson.com/products/category/beauty
