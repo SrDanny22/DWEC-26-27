@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: white;
+}
+
+body {
+    min-height: 100dvh;
+    width: 1280px;
+    background-color: burlywood;
+    margin: auto;
+}
+
+section#eSection {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    overflow-x: scroll;
+    scrollbar-color: darkred gray; /* No es importate para aprenderlo */
+    scrollbar-width: thin; /* No es importate para aprenderlo */
+}
+
+article {
+    border: solid;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    corner-shape: bevel;
+
+    img {
+        width: 100px;
+    }
+}

@@ -62,7 +62,7 @@ async function mostrarProductoDeLaCategoria(e) {
                 const nImg = document.createElement('img');
                 nArticle.appendChild(nImg);
         
-                nImg.setAttribute('style', 'height: 80px;')
+                // nImg.setAttribute('style', 'height: 80px;')
                 nImg.setAttribute('src', producto.images[0]);
 
         });
