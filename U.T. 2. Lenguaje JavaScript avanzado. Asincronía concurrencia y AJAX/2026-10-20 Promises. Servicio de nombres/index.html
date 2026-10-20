@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module" src="./code.js"></script>
+</head>
+<body>
+    <h1>Servicio de nombres</h1>
+
+    <form>
+        <label>Indica la cantidad de nombres: </label>
+        <input type="range" id="eRange" min="1" max="10">
+        <input id="nNumber" type="number" disabled>
+
+        <br>
+
+        <input type="radio" name="genero" id="masculino" value="male">
+        <label for="masculino">Masculino</label>
+
+        <input type="radio" name="genero" id="femenino" value="female">
+        <label for="femenino">Femenino</label>
+
+        <input type="radio" name="genero" id="ambos" value="both" checked>
+        <label for="ambos">Ambos</label>
+        
+
+        <br><br>
+
+        <button type="button" id="eButton">Pedir nombres</button>
+
+        <br>
+
+        <ol id="eOl">
+            
+        </ol>
+    </form>
+</body>
+</html>

@@ -41,6 +41,11 @@ async function mostrarProductoDeLaCategoria(e) {
     const nSection = document.getElementById('eSection');
 
     nSection.innerHTML = '';
+    
+    // Otra manera
+    // while (nSection.hasChildNodes()) {
+    //     nSection.removeChild(nSection.lastChild())
+    // }
 
         productoP.forEach(producto => {
 
