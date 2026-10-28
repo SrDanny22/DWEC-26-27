@@ -6,10 +6,12 @@
 
 import DummyRestService from "./dummy-rest-service.js";
 import TranslateService from "./translate-service.js";
+import { openSpinner, closeSpinner } from "./spinner.js";
 
 await setup();
 
 async function setup() {
+    openSpinner()
     const service = new DummyRestService();
     const categories = await service.getCategories();
 
