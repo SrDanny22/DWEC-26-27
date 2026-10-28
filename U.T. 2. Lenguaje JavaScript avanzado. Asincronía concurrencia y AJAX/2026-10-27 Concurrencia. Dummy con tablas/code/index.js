@@ -2,33 +2,62 @@
 //     {id: 'patos', name: 'Patos'},
 //     {id: 'gatos', name: 'Gatos'},
 //     {id: 'perros', name: 'Perros'},
-// ]
+// ];
 
 import DummyRestService from "./dummy-rest-service.js";
+import TranslateService from "./translate-service.js";
 
 await setup();
 
 async function setup() {
     const service = new DummyRestService();
     const categories = await service.getCategories();
-    renderTableCategories(categories);
+
+
+
+    await renderTableCategories(categories);
+
 }
 
 
-function renderTableCategories(categories) {
+// function renderTableCategories(categories) {
+//     const nTbody = document.querySelector('#tTabCategories>tbody');
+
+//     categories.forEach(async({id, name}) => {
+//         const nTr = nTbody.appendChild(document.createElement('tr'));
+//         /* handler - manejador */
+        
+//         const service = new TranslateService();
+//         const nameInSpanish = await service.translateFromEnglishToSpanish(name);
+
+//         const nTdName = nTr.appendChild(document.createElement('td'));
+//         nTdName.textContent = nameInSpanish;
+//         // nTdName.setAttribute('data-category', id);
+//         nTdName.dataset.category = id;
+//         nTdName.addEventListener('click', categoryClickedHandler);
+
+//         const nTdPhoto = nTr.appendChild(document.createElement('td'));
+//         nTdPhoto.textContent = name;
+//     });
+// }
+
+async function renderTableCategories(categories) {
     const nTbody = document.querySelector('#tTabCategories>tbody');
 
-    categories.forEach(({id, name}) => {
-        const nTr = document.createElement('tr');
-        // const nTr = nTbody.appendChild(document.createElement('tr'));
-        nTbody.appendChild(nTr);
+    const service = new TranslateService();
+    const promises = categories.map(category => service.translateFromEnglishToSpanish(category.name));
+    const namesInSpanish = await Promise.all(promises);
 
+    categories.forEach(async({id, name}, i) => {
+        const nTr = nTbody.appendChild(document.createElement('tr'));
+        /* handler - manejador */
         
+
         const nTdName = nTr.appendChild(document.createElement('td'));
-        nTdName.textContent = name;
+        nTdName.textContent = namesInSpanish[i];
         // nTdName.setAttribute('data-category', id);
         nTdName.dataset.category = id;
-        nTdName.addEventListener('click', categoryClickedHandler); /* handler - manejador */
+        nTdName.addEventListener('click', categoryClickedHandler);
 
         const nTdPhoto = nTr.appendChild(document.createElement('td'));
         nTdPhoto.textContent = name;
@@ -38,29 +67,28 @@ function renderTableCategories(categories) {
 async function categoryClickedHandler(e) {
     // const nTd = e.target;
     // const categoryId = nTd.getAttribute('data-category');
-
     const categoryId = e.target.dataset.category;
     console.log(categoryId);
     const service = new DummyRestService();
-    const products = await service.getProductsByCategory(categoryId)
+    const products = await service.getProductsByCategory(categoryId);
     renderTableProducts(products);
 }
 
 function renderTableProducts(products) {
-    const nTbody = document.querySelector('#tTabProcucts>tbody');
+    const nTbody = document.querySelector('#tTabProducts>tbody');
     nTbody.innerHTML = '';
+
     products.forEach(({id, name, price, image}) => {
         const nTr = nTbody.appendChild(document.createElement('tr'));
         
         const nTdName = nTr.appendChild(document.createElement('td'));
         nTdName.textContent = name;
-
+        
         const nTdPrice = nTr.appendChild(document.createElement('td'));
         nTdPrice.textContent = price;
-        
+
         const nTdPhoto = nTr.appendChild(document.createElement('td'));
-        const nImg = nTdPhoto.appendChild(document.createElement('img'))
+        const nImg = nTdPhoto.appendChild(document.createElement('img'));
         nImg.src = image;
-        
     });
 }

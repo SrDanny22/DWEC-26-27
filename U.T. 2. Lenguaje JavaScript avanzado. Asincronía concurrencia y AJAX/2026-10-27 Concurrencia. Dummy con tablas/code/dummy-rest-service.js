@@ -15,7 +15,7 @@ export default class DummyRestService {
             //     }
             // }
         } catch (e) {
-            console.error(e.message);
+            throw new DummyRestServiceException(e.message);
         }
     }
 
@@ -28,8 +28,14 @@ export default class DummyRestService {
             const data = await response.json();
             return data.products.map(({id, title:name, price, images}) => ({id, name, price, image: images[0]}));
         } catch (e) {
-            console.error(e.message);
+            throw new DummyRestServiceException(e.message);
         }
+    }
+}
+
+class DummyRestServiceException extends Error{
+    constructor(message) {
+        super(`(EXCEPTIONDummyRestServiceException): ${message}`);
     }
 }
 
