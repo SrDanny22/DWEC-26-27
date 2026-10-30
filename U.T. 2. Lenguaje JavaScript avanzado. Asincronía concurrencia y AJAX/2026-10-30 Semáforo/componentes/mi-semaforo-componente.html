@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mi-semaforo</title>
+    <script src="./mi-semaforo.js"></script>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            background-color: darkslategrey;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        #registro {
+            width: min(100%, 420px);
+            max-height: 200px;
+            overflow-y: auto;
+            background: #f4f4f4;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-family: monospace;
+            font-size: 0.85rem;
+            list-style: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Componente &lt;mi-semaforo&gt;</h1>
+
+    <mi-semaforo duracion-rojo="4" duracion-ambar="2" duracion-verde="4"></mi-semaforo>
+
+    <button id="boton">Disparar semaforoencendido (ámbar intermitente)</button>
+    <ul id="registro"></ul>
+
+    <script>
+        const semaforo = document.querySelector('mi-semaforo');
+        const registro = document.querySelector('#registro');
+        const boton = document.querySelector('#boton');
+
+        const anotar = (texto) => {
+            const li = document.createElement('li');
+            li.textContent = texto;
+            registro.prepend(li);
+        };
+
+        semaforo.addEventListener('semaforoencendido', () => {
+            anotar('semaforoencendido');
+        });
+
+        semaforo.addEventListener('luzencendida', (evento) => {
+            anotar(`luzencendida: ${evento.detail.color}`);
+        });
+
+        boton.addEventListener('click', () => {
+            semaforo.dispatchEvent(
+                new CustomEvent('semaforoencendido', { bubbles: true, composed: true })
+            );
+        });
+    </script>
+</body>
+</html>
