@@ -26,9 +26,9 @@ body {
     text-align: center;
 }
 
-nav {
+/* nav {
     display: none;
-}
+} */
 
 .main-app {
     overflow-y: scroll;
@@ -49,7 +49,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
     header {
         font-size: 2rem;
         font-weight: bold;
@@ -60,7 +60,6 @@ nav {
     /* img {
         width: 100%;
     } */
-
 }
 
 .footer-app {
@@ -68,8 +67,7 @@ nav {
     color: white;
 }
 
-/* @media (width >= 768px) {
-
+@media (width >= 768px) {
     .container-categories {
         display: grid;
         grid-template-columns: repeat(4, minmax(100px, 1fr));
@@ -78,12 +76,16 @@ nav {
     .card-category>header {
         font-size: 1.5rem;
     }
-} */
+}
 
 @media (width >= 1280px) {
-    .container-categories {
-        grid-template-rows: 100px 100px;
-        grid-auto-flow: column;
+    main {
+        flex: 1 1 0;
     }
-
+    .container-categories {
+        grid-template-columns: unset;
+        grid-template-rows: 1fr 1fr;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr; 
+    }
 }
