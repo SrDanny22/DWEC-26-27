@@ -3,3 +3,7 @@ GET https://dummyjson.com/product/categories
 ###
 
 GET https://dummyjson.com/products/1
+
+###
+
+GET https://dummyjson.com/products/category/beauty

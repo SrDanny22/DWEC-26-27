@@ -30,9 +30,46 @@ export class DummyService {
             }
             const data = await response.json();
             const categories = data.map(({slug: id, name}) => new CategoryModel(id, name));
-            return categories;
+
+            const promises = categories.map(category => this.getCategoryById(category.id));
+            const resultadoIntermedio = await Promise.all(promises);
+            const categoriesWhitImage = (resultadoIntermedio).map( (resultado, i) => {
+                const category = new CategoryModel(categories[i].id, categories[i].name);
+                category.image = resultado.products[0].thumbnail;
+                return category;
+            })
+
+            return categoriesWhitImage;
         } catch (e) {
             throw new DummyServiceError('No puedo recuperar las categorías', e.message,  'getCategories');
+        }
+    }
+
+    async getCategoryById(categiryId) {
+        try {
+            const endpoint = DummyService.BASE_URL + 'category/' + categiryId;
+            const response = await fetch(endpoint);
+            if (!response.ok) {
+                throw new Error(response.statusText);
+            }
+            const data = await response.json();
+            return data
+        } catch (e) {
+            throw new DummyServiceError('No puedo recuperar el producto', e.message,  'getproducts');
+        }
+    }
+
+    async getProductById(productId) {
+        try {
+            const endpoint = DummyService.BASE_URL + productId;
+            const response = await fetch(endpoint);
+            if (!response.ok) {
+                throw new Error(response.statusText);
+            }
+            const data = await response.json();
+            return data
+        } catch (e) {
+            throw new DummyServiceError('No puedo recuperar la categroia', e.message,  'getcategoryById');
         }
     }
 }
