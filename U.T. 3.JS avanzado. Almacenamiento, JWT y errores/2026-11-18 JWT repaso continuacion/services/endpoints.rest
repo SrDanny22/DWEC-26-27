@@ -1,0 +1,22 @@
+### Devuelve un token si el usuario se autentica correctamente
+POST https://dummyjson.com/auth/login?delay=1000
+Content-Type: application/json
+
+{   
+    "username": "emilys",
+    "password": "emilyspass",
+    "expiresInMins": 120
+}
+
+### Devuelve los productos con el token
+GET https://dummyjson.com/auth/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3OTQ5ODg3NzUsImV4cCI6MTc5NDk5NTk3NX0.jahMMUd8C5h0uR4qb9Omh9CsMazC5gtRNdYqSZMoMxY
+
+### Devuelve los productos de una determinada categoría con el token
+GET https://dummyjson.com/auth/products/category/laptops
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3OTQ5ODg3NzUsImV4cCI6MTc5NDk5NTk3NX0.jahMMUd8C5h0uR4qb9Omh9CsMazC5gtRNdYqSZMoMxY
+
+
+### Devuelve las categorias con el token suministrado
+GET https://dummyjson.com/auth/products/categories?delay=1000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3OTQ5ODg3NzUsImV4cCI6MTc5NDk5NTk3NX0.jahMMUd8C5h0uR4qb9Omh9CsMazC5gtRNdYqSZMoMxY
